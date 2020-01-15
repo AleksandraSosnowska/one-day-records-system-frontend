@@ -1,0 +1,110 @@
+#menu-buttons {
+    -fx-background-color:  #000066;
+    -fx-font-size:  20;
+    -fx-text-fill:   white;
+    -fx-font-family:  Calibri;
+    -fx-font-weight:  900;
+    -fx-background-radius: 10px;
+}
+
+#menu-buttons:hover {
+    -fx-background-color:  white;
+    -fx-text-fill:   #303030;
+}
+
+#password_input, #text_input, #login_input {
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: white;
+    -fx-font-size:  15;
+    -fx-text-fill:  white;
+    -fx-font-family:  Calibri;
+    -fx-border-width: 0 0 2 0;
+    -fx-border-color: white;
+}
+
+#pesel_input {
+    -fx-background-color: transparent;
+    -fx-prompt-text-fill: white;
+    -fx-font-size:  15;
+    -fx-text-fill:  white;
+    -fx-font-family:  Calibri;
+    -fx-border-width: 0 0 0 0;
+}
+
+.check-box>.box {
+    -fx-background-insets: 0;
+    -fx-background-radius: 0;
+    -fx-background-color: transparent;
+}
+
+.check-box>.box>.mark {
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../assets/unmarked.png");
+    -fx-background-position: center;
+    -fx-background-repeat: stretch;
+    -fx-shape: none;
+
+}
+
+.check-box:selected>.box>.mark{
+    -fx-padding: 10px;
+    -fx-background-color: transparent;
+    -fx-background-image: url("../assets/marked.png");
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-background-radius: 14;
+    -fx-fill: white;
+}
+
+.table-view .column-header-background {
+    -fx-background-color: #000066;
+    -fx-background-radius: 14;
+}
+
+.table-view .column-header, .table-view .filler{
+    -fx-size: 35;
+    -fx-border-width: 0 0 10 0;
+    -fx-background-color: transparent;
+}
+.table-view .column-header .label{
+    -fx-text-fill: white;
+    -fx-font-size: 15;
+}
+
+.table-cell{
+    -fx-text-fill: white;
+    -fx-alignment: center;
+    -fx-font-size: 16;
+}
+
+.table-row-cell{
+    -fx-background-color: transparent;
+    -fx-table-cell-border-color: transparent;
+    -fx-font-family: Calibri;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: white;
+    -fx-background-radius: 14;
+}
+
+.table-row-cell .text {
+    -fx-fill: white;
+}
+
+.table-row-cell:selected .text {
+    -fx-fill: #303030;
+}
+
+.table-view .scroll-bar * {
+    -fx-min-width: 0;
+    -fx-pref-width: 0;
+    -fx-max-width: 0;
+
+    -fx-min-height: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}

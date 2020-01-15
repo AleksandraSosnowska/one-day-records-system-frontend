@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.text.TextFlow?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="780.0" prefWidth="790.0" style="-fx-background-color: linear-gradient(from 0% 0% to 100% 100%, #FFA07A, #7637d5);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controller.Admin.AdminTaskEditorController">
+    <children>
+        <TextFlow layoutX="430.0" layoutY="760.0" prefHeight="20.0" prefWidth="360.0" style="-fx-background-color: #000033; -fx-text-alignment: center; -fx-background-radius: 10px 0px 0 0;">
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-family: Calibry; -fx-font-weight: 100;" text="Aleksandra Kuc - Technologie Obiektowe" textAlignment="CENTER" wrappingWidth="441.8162841796875" />
+            </children>
+        </TextFlow>
+        <Button id="menu-buttons" layoutX="268.0" layoutY="517.0" mnemonicParsing="false" onAction="#doChange" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Zatwierdź zmiany" />
+        <Text fill="WHITE" layoutX="243.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zarządzanie danymi konta">
+            <font>
+                <Font name="Calibri Bold" size="28.0" />
+            </font>
+        </Text>
+        <Button id="menu-buttons" layoutX="268.0" layoutY="644.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Powrót do menu" />
+        <Text fill="WHITE" layoutX="89.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aby wprowadzić zmiany, wprowadź nowe dane a następnie zatwierdź je przyciskiem.">
+            <font>
+                <Font name="Calibri Light" size="18.0" />
+            </font>
+        </Text>
+        <Line endX="130.0" fill="WHITE" layoutX="241.0" layoutY="196.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+        <Line endX="130.0" fill="WHITE" layoutX="241.0" layoutY="247.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+        <Line endX="130.0" fill="WHITE" layoutX="240.0" layoutY="300.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+        <Line endX="130.0" fill="WHITE" layoutX="242.0" layoutY="300.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+        <Line endX="130.0" fill="WHITE" layoutX="242.0" layoutY="351.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+        <Line endX="130.0" fill="WHITE" layoutX="239.0" layoutY="403.0" startX="-100.0" stroke="WHITE" strokeWidth="2.0" />
+        <Text fx:id="hotel_out" fill="WHITE" layoutX="250.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="hotel">
+            <font>
+                <Font name="Calibri Light" size="18.0" />
+            </font>
+        </Text>
+        <Text fx:id="address_out" fill="WHITE" layoutX="250.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="adres">
+            <font>
+                <Font name="Calibri Light" size="18.0" />
+            </font>
+        </Text>
+        <Text fx:id="start_out" fill="WHITE" layoutX="250.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="początek">
+            <font>
+                <Font name="Calibri Light" size="18.0" />
+            </font>
+        </Text>
+        <Text fx:id="amount_out" fill="WHITE" layoutX="249.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ilość">
+            <font>
+                <Font name="Calibri Light" size="18.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="141.0" layoutY="188.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hotel:">
+            <font>
+                <Font name="Calibri Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="141.0" layoutY="239.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adres:">
+            <font>
+                <Font name="Calibri Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="141.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start:">
+            <font>
+                <Font name="Calibri Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="142.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Koniec:">
+            <font>
+                <Font name="Calibri Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fill="WHITE" layoutX="140.0" layoutY="395.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ile osób:">
+            <font>
+                <Font name="Calibri Bold" size="20.0" />
+            </font>
+        </Text>
+        <Text fx:id="error" fill="#200965" layoutX="215.0" layoutY="475.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Błędne dane!" textAlignment="CENTER" underline="true" wrappingWidth="360.0000002235174">
+            <font>
+                <Font name="Calibri Light" size="20.0" />
+            </font>
+        </Text>
+        <TextField id="text_input" fx:id="change_hotel" layoutX="509.0" layoutY="167.0" prefHeight="26.0" prefWidth="191.0" promptText="Wprowadź zmianę" stylesheets="@../style.css" />
+        <TextField id="text_input" fx:id="change_address" layoutX="509.0" layoutY="218.0" prefHeight="26.0" prefWidth="191.0" promptText="Wprowadź zmianę" stylesheets="@../style.css" />
+        <TextField id="text_input" fx:id="change_start" layoutX="509.0" layoutY="271.0" prefHeight="26.0" prefWidth="191.0" promptText="Wprowadź zmianę" stylesheets="@../style.css" />
+        <TextField id="text_input" fx:id="change_end" accessibleRole="PASSWORD_FIELD" layoutX="509.0" layoutY="322.0" prefHeight="26.0" prefWidth="191.0" promptText="Wprowadź zmianę" stylesheets="@../style.css" />
+        <TextField id="text_input" fx:id="change_amount" accessibleRole="PASSWORD_FIELD" layoutX="509.0" layoutY="374.0" prefHeight="26.0" prefWidth="191.0" promptText="Wprowadź zmianę" stylesheets="@../style.css" />
+        <Text fx:id="end_out" fill="WHITE" layoutX="250.0" layoutY="343.0" strokeType="OUTSIDE" strokeWidth="0.0" text="koniec">
+            <font>
+                <Font name="Calibri Light" size="18.0" />
+            </font>
+        </Text>
+        <ImageView fx:id="image_err2" fitHeight="20.0" fitWidth="20.0" layoutX="488.0" layoutY="325.0">
+            <image>
+                <Image url="@../../assets/error1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="image_err1" fitHeight="20.0" fitWidth="20.0" layoutX="488.0" layoutY="275.0">
+            <image>
+                <Image url="@../../assets/error1.png" />
+            </image>
+        </ImageView>
+        <ImageView fx:id="image_err3" fitHeight="20.0" fitWidth="20.0" layoutX="488.0" layoutY="378.0">
+            <image>
+                <Image url="@../../assets/error1.png" />
+            </image>
+        </ImageView>
+    </children>
+</Pane>

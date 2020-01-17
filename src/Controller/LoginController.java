@@ -1,18 +1,23 @@
 package Controller;
 
+import Controller.Admin.AdminTaskEditorController;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import javafx.util.Duration;
 
 import java.sql.SQLException;
 import java.util.concurrent.Callable;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 
 public class LoginController {
 
@@ -34,6 +39,9 @@ public class LoginController {
     @FXML
     private Text info1;
 
+    @FXML
+    private Button loginButton;
+
     private int triesAmount;
 
     private MainController mainController;
@@ -42,6 +50,7 @@ public class LoginController {
         this.togglevisiblePassword(null);
         info.setText(" ");
         info1.setText(" ");
+        loginButton.setVisible(true);
         triesAmount = 0;
     }
 
@@ -80,21 +89,7 @@ public class LoginController {
                 triesAmount += 1;
                 if(triesAmount == 3){
 
-                    info1.setText("Zbyt dużo błędnych prób, spróbuj ponownie za 30s");
-                    info.setText("");
-                    //tutaj program powinien czekać 2s przełączać się do waiting frame i po 30s wracać do logowania
-
-                    ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
-                    Callable<String> callableTask = () -> {
-                        Platform.exit();
-                        System.exit(0);
-                        TimeUnit.MILLISECONDS.sleep(300);
-                        return "Task's execution";
-                    };
-                    long delayInSeconds = 2;
-                    executorService.schedule(callableTask, delayInSeconds, TimeUnit.SECONDS);
-/*
-                    mainController.switchScreen("waiting_frame", false);*/
+                    delayAction();
                 } else {
                     info.setText("Błędny login lub hasło");
                 }
@@ -149,4 +144,17 @@ public class LoginController {
         System.exit(0);
     }
 
+    public void delayAction(){
+        info1.setText("Zbyt dużo błędnych prób, spróbuj ponownie za 30s");
+        info.setText("");
+        loginButton.setVisible(false);
+        PauseTransition wait = new PauseTransition(Duration.seconds(30));
+        wait.setOnFinished((e) -> {
+            /*YOUR METHOD*/
+            loginButton.setVisible(true);
+            info1.setText("");
+        });
+        wait.play();
+
+    }
 }

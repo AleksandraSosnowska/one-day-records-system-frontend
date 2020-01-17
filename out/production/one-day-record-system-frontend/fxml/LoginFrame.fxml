@@ -16,7 +16,7 @@
                 <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-family: Calibry; -fx-font-weight: 100;" text="Aleksandra Kuc - Technologie Obiektowe" textAlignment="CENTER" wrappingWidth="441.8162841796875" />
             </children>
         </TextFlow>
-        <Button id="menu-buttons" layoutX="286.0" layoutY="379.0" mnemonicParsing="false" onAction="#log_into_system" prefHeight="40.0" prefWidth="255.0" stylesheets="@style.css" text="Zaloguj się" />
+        <Button id="menu-buttons" fx:id="loginButton" layoutX="286.0" layoutY="379.0" mnemonicParsing="false" onAction="#log_into_system" prefHeight="40.0" prefWidth="255.0" stylesheets="@style.css" text="Zaloguj się" />
         <TextField id="login_input" fx:id="login_input" layoutX="317.0" layoutY="210.0" prefHeight="26.0" prefWidth="191.0" promptText="Login" stylesheets="@style.css" />
         <Text fill="WHITE" layoutX="243.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wprowadź dane, by zalogować się do systemu:">
             <font>

@@ -22,13 +22,13 @@
                 <Font name="Calibri Bold" size="28.0" />
             </font>
         </Text>
-        <TableView fx:id="tasks_table" layoutX="91.0" layoutY="146.0" prefHeight="416.0" prefWidth="609.0" stylesheets="@../style.css">
+        <TableView fx:id="tasks_table" layoutX="36.0" layoutY="146.0" prefHeight="416.0" prefWidth="717.0" stylesheets="@../style.css">
             <columns>
-                <TableColumn fx:id="hotelName" prefWidth="104.0" text="Hotel" />
-                <TableColumn fx:id="address" prefWidth="145.0" text="Adres" />
-                <TableColumn fx:id="startDate" prefWidth="156.0" text="Początek" />
-                <TableColumn fx:id="endDate" prefWidth="129.0" text="Koniec" />
-                <TableColumn fx:id="peopleNeeded" prefWidth="74.0" text="Ile osób" />
+                <TableColumn fx:id="hotelName" prefWidth="119.0" text="Hotel" />
+                <TableColumn fx:id="address" prefWidth="189.0" text="Adres" />
+                <TableColumn fx:id="startDate" prefWidth="161.0" text="Początek" />
+                <TableColumn fx:id="endDate" prefWidth="141.0" text="Koniec" />
+                <TableColumn fx:id="peopleNeeded" prefWidth="106.0" text="Ile osób" />
             </columns>
         </TableView>
         <Text fx:id="error" fill="#200965" layoutX="94.0" layoutY="638.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nie zaznaczono żadnej pozycji" textAlignment="CENTER" underline="true" wrappingWidth="602.072265625">

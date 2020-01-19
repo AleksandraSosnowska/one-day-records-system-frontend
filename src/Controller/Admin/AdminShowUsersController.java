@@ -2,6 +2,7 @@ package Controller.Admin;
 
 import Controller.DataBase;
 import Controller.MainController;
+import Controller.ShowTasksData;
 import Controller.ShowUsersData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -44,7 +45,7 @@ public class AdminShowUsersController {
 
     public void loadData(){
 
-        try {
+       /* try {
             DataBase.rs = DataBase.stmt.executeQuery("Select * from users_data WHERE ifAdmin is NULL");
             while(DataBase.rs.next()){
                 users_list.add(new ShowUsersData(DataBase.rs.getInt("user_id"),
@@ -55,6 +56,17 @@ public class AdminShowUsersController {
             }
         } catch (SQLException e) {
             System.out.println("Brak zleceń");
+        }*/
+
+        String users = MainController.apiConnector.getNoAdminUsers();
+        if (!users.equals("")) {
+            String[] splittedUsers = users.split("=+");
+            System.out.println(splittedUsers);
+            for(int i = 0; i < splittedUsers.length; i++) {
+                String[] splitted = splittedUsers[i].split("\\;+");
+                users_list.add(new ShowUsersData(Integer.parseInt(splitted[0]), splitted[1],
+                        splitted[2], splitted[3], splitted[4]));
+            }
         }
         setCellValuesFactory();
     }

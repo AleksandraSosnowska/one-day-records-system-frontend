@@ -24,6 +24,9 @@ public class AdminMainController {
     }
 
     @FXML
+    public void showUsers() { mainController.switchScreen("admin_show_users", true);}
+
+    @FXML
     public void log_out(ActionEvent actionEvent) {
         mainController.setCurrentUserId(-1);
         mainController.switchScreen("menu", true);

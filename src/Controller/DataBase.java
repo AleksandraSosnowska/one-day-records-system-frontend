@@ -4,24 +4,21 @@ import java.sql.*;
 
 public class DataBase {
 
-    public static Connection connection;
-    public static Statement stmt;
-    public static CallableStatement stat;
-    public static PreparedStatement preparedStatement;
-    public static ResultSet rs;
+	public static Connection connection;
+	public static Statement stmt;
+	public static CallableStatement stat;
+	public static PreparedStatement preparedStatement;
+	public static ResultSet rs;
 
-    public void DBConnect()
-    {
-        try
-        {
-            connection = DriverManager.getConnection("jdbc:mysql://149.202.31.190:3306/data", "bazodanowiec", "OlaKuc17");
-            stmt = connection.createStatement();
+	public void DBConnect() {
+		try {
+			connection = DriverManager.getConnection("jdbc:mysql://149.202.31.190:3306/data", "bazodanowiec", "OlaKuc17");
+			stmt = connection.createStatement();
 
-        }catch(Exception ex)
-        {
-            System.out.println("Blad DBConnect(): " + ex);
-        }
-    }
+		} catch (Exception ex) {
+			System.out.println("Blad DBConnect(): " + ex);
+		}
+	}
 /*
 
     static void getAllUserData(){
@@ -43,7 +40,7 @@ public class DataBase {
         }
     }*/
 
-    public static void changeUserData(int user_id, int col_no, String new_data){
+    /*public static void changeUserData(int user_id, int col_no, String new_data){
         try {
             stat = connection.prepareCall("{CALL ChangeUserData(?, ?, ?)}");
             stat.setInt(1, user_id);
@@ -54,7 +51,7 @@ public class DataBase {
             System.out.println("Troubles with connecting to database. Please try one more time later");
             e.printStackTrace();
         }
-    }
+    }*/
 /*
     static void getAllTaskData(int task_id){
         try {

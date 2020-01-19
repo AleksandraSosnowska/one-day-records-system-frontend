@@ -1,13 +1,11 @@
 package Controller.Admin;
 
-import Controller.DataBase;
 import Controller.MainController;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;
@@ -86,27 +84,31 @@ public class AdminTaskEditorController {
             if (new_hotel.length() > 1 || new_address.length() > 1 || new_start.length() > 1 || new_end.length() > 1 || new_amount.length() > 0) {
 
                 if(new_hotel.length() > 1){
-                    DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET hotel_name = ? WHERE task_id = ?");
+                    /*DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET hotel_name = ? WHERE task_id = ?");
                     DataBase.preparedStatement.setString(1, new_hotel);
                     DataBase.preparedStatement.setInt(2, mainController.getTempTaskId());
-                    DataBase.preparedStatement.execute();
-                    temp = 1;
+                    DataBase.preparedStatement.execute();*/
+                    if (MainController.apiConnector.updateTask(mainController.getTempTaskId(), 1, new_hotel))
+                        temp = 1;
                 }
                 if(new_address.length() > 1){
-                    DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET address = ? WHERE task_id = ?");
+                    /*DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET address = ? WHERE task_id = ?");
                     DataBase.preparedStatement.setString(1, new_address);
                     DataBase.preparedStatement.setInt(2, mainController.getTempTaskId());
-                    DataBase.preparedStatement.executeUpdate();
-                    temp = 2;
+                    DataBase.preparedStatement.executeUpdate();*/
+                    if (MainController.apiConnector.updateTask(mainController.getTempTaskId(), 2, new_address))
+                        temp = 2;
                 }
                 startDateThread.join();
                 if(new_start.length() > 1){
                     if(startDateValidation.isValid) {
-                        DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET start_date = ? WHERE task_id = ?");
+                       /* DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET start_date = ? WHERE task_id = ?");
                         DataBase.preparedStatement.setTimestamp(1, new Timestamp(new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(new_start).getTime()));
                         DataBase.preparedStatement.setInt(2, mainController.getTempTaskId());
-                        DataBase.preparedStatement.executeUpdate();
-                        temp = 3;
+                        DataBase.preparedStatement.executeUpdate();*/
+                        //Timestamp start = new Timestamp(new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(new_start).getTime());
+                        if (MainController.apiConnector.updateTask(mainController.getTempTaskId(), 3, new_start))
+                            temp = 3;
                     } else {
                         image_err1.setVisible(true);
                     }
@@ -114,11 +116,13 @@ public class AdminTaskEditorController {
                 endDateThread.join();
                 if(new_end.length() > 1){
                     if(endDateValidation.isValid) {
-                        DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET end_date = ? WHERE task_id = ?");
+                        /*DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET end_date = ? WHERE task_id = ?");
                         DataBase.preparedStatement.setTimestamp(1, new Timestamp(new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(new_end).getTime()));
                         DataBase.preparedStatement.setInt(2, mainController.getTempTaskId());
-                        DataBase.preparedStatement.executeUpdate();
-                        temp = 4;
+                        DataBase.preparedStatement.executeUpdate();*/
+                        //Timestamp end = new Timestamp(new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(new_end).getTime());
+                        if (MainController.apiConnector.updateTask(mainController.getTempTaskId(), 4, new_end))
+                            temp = 4;
                     } else {
                         image_err2.setVisible(true);
                     }
@@ -126,11 +130,13 @@ public class AdminTaskEditorController {
                 amountThread.join();
                 if(new_amount.length() > 0){
                     if(amountValidation.isValid) {
-                        DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET amount_people_needed = ? WHERE task_id = ?");
+                       /* DataBase.preparedStatement = DataBase.connection.prepareStatement("UPDATE tasks_data SET amount_people_needed = ? WHERE task_id = ?");
                         DataBase.preparedStatement.setInt(1, Integer.parseInt(new_amount));
                         DataBase.preparedStatement.setInt(2, mainController.getTempTaskId());
-                        DataBase.preparedStatement.executeUpdate();
-                        temp = 5;
+                        DataBase.preparedStatement.executeUpdate();*/
+
+                        if (MainController.apiConnector.updateTask(mainController.getTempTaskId(), 5, new_amount))
+                            temp = 5;
                     } else {
                         image_err3.setVisible(true);
                     }
@@ -161,7 +167,7 @@ public class AdminTaskEditorController {
 
         error.setText("");
 
-        try {
+/*        try {
             DataBase.rs = DataBase.stmt.executeQuery("select * from tasks_data WHERE task_id = " + mainController.getTempTaskId());
             if(DataBase.rs.next()){
                 hotel_out.setText(DataBase.rs.getString("hotel_name"));
@@ -172,7 +178,17 @@ public class AdminTaskEditorController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+
+        String taskData = MainController.apiConnector.getTaskData(mainController.getTempTaskId());
+        if (taskData.equals("")) throw new RuntimeException();
+        String[] splittedTaskData = taskData.split("\\;+");
+        hotel_out.setText(splittedTaskData[0]);
+        address_out.setText(splittedTaskData[1]);
+        start_out.setText(splittedTaskData[2]);
+        end_out.setText(splittedTaskData[3]);
+        amount_out.setText(splittedTaskData[4]);
+
     }
 
     static class DateValidation implements Runnable {
@@ -199,7 +215,9 @@ public class AdminTaskEditorController {
 
         @Override
         public void run() {
-            isValid = Pattern.compile("^(?=.{2}$)(?=.*[0-9])$").matcher(amount).matches();
+
+            isValid = Pattern.compile("^([0-9]{1,2})$").matcher(amount).matches();
+
         }
     }
 }

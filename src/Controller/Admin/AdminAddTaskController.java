@@ -2,6 +2,7 @@ package Controller.Admin;
 
 import Controller.DataBase;
 import Controller.MainController;
+import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
@@ -81,7 +82,7 @@ public class AdminAddTaskController {
                 Timestamp startTimestamp = new Timestamp(new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(start_date).getTime());
                 Timestamp endTimestamp = new Timestamp(new SimpleDateFormat("dd-MM-yyyy HH:mm").parse(end_date).getTime());
 
-                addNewTask(new_hotel, new_address, startTimestamp, endTimestamp, new_amount);
+                MainController.apiConnector.addNewTask(new_hotel, new_address, startTimestamp, endTimestamp, new_amount);
                 mainController.switchScreen("admin_menu", true);
 
             } catch (Exception e) {
@@ -91,7 +92,7 @@ public class AdminAddTaskController {
 
     }
 
-    private static void addNewTask(String hotel_name, String address, Timestamp start_date, Timestamp end_date, String amount_people_needed){
+/*    private static void addNewTask(String hotel_name, String address, Timestamp start_date, Timestamp end_date, String amount_people_needed){
 
         try {
             DataBase.preparedStatement = DataBase.connection.prepareStatement("INSERT INTO tasks_data (hotel_name, address, start_date, end_date, amount_people_needed)" + "VALUES(?, ?, ?, ?, ?)");
@@ -106,7 +107,7 @@ public class AdminAddTaskController {
             System.out.println("Troubles with connecting to database. Please try one more time later");
             e.printStackTrace();
         }
-    }
+    }*/
 
     @FXML
     public void backMenu() {

@@ -2,14 +2,39 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29a914bc-9344-4d82-a418-a2ba12d0f583" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Controller/ApiConnector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/LoginController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/LoginFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/LoginFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/MainController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/MainController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$PasswordValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$PasswordValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$PeselValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$PeselValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$UsernameValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$UsernameValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserDataAccountController$UsernameValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserDataAccountController$UsernameValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserEnrollToTaskController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserEnrollToTaskController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/WaitingController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/User/UserNewTasksScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/User/UserNewTasksScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/User/UserTasksScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/User/UserTasksScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/WaitingFrame.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminAddTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminAddTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminMainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminMainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminShowTasksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminShowTasksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminShowUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminShowUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminTaskEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminTaskEditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/DataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fxml/LoginFrame.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/LoginFrame.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/User/UserDataAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserDataAccountController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/User/UserEnrollToTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserEnrollToTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/User/UserNewTasksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserNewTasksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/User/UserTasksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserTasksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/WaitingController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Admin/AdminMainScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Admin/AdminMainScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Admin/AdminTaskEditorScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Admin/AdminTaskEditorScreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/fxml/User/UserNewTasksScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/User/UserNewTasksScreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/fxml/User/UserTasksScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/User/UserTasksScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/WaitingFrame.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +69,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application">
@@ -85,7 +111,8 @@
       <workItem from="1579076762583" duration="25252000" />
       <workItem from="1579112004267" duration="5212000" />
       <workItem from="1579175179802" duration="3354000" />
-      <workItem from="1579259755285" duration="227000" />
+      <workItem from="1579259755285" duration="3437000" />
+      <workItem from="1579293800817" duration="33896000" />
     </task>
     <servers />
   </component>
@@ -113,22 +140,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="722" y="156" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578600782058" />
-    <state width="1493" height="145" key="GridCell.Tab.0.bottom" timestamp="1579219042028">
+    <state width="1493" height="282" key="GridCell.Tab.0.bottom" timestamp="1579459971202">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="145" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579219042028" />
-    <state width="1493" height="145" key="GridCell.Tab.0.center" timestamp="1579219042028">
+    <state width="1493" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579459971202" />
+    <state width="1493" height="282" key="GridCell.Tab.0.center" timestamp="1579459971201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="145" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579219042028" />
-    <state width="1493" height="145" key="GridCell.Tab.0.left" timestamp="1579219042028">
+    <state width="1493" height="282" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579459971201" />
+    <state width="1493" height="282" key="GridCell.Tab.0.left" timestamp="1579459971201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="145" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579219042028" />
-    <state width="1493" height="145" key="GridCell.Tab.0.right" timestamp="1579219042028">
+    <state width="1493" height="282" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579459971201" />
+    <state width="1493" height="282" key="GridCell.Tab.0.right" timestamp="1579459971201">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="145" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579219042028" />
+    <state width="1493" height="282" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579459971201" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1578768340648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -145,13 +172,21 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="261" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1578768340648" />
-    <state x="358" y="0" key="SettingsEditor" timestamp="1578610972964">
+    <state x="358" y="0" key="SettingsEditor" timestamp="1579352220217">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="358" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1578610972964" />
+    <state x="358" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1579352220217" />
     <state x="815" y="265" key="extract.method.dialog" timestamp="1578740431248">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="815" y="265" key="extract.method.dialog/0.0.1536.824@0.0.1536.824" timestamp="1578740431248" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1579440322720">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1579440322720" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1579353764032">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1579353764032" />
   </component>
 </project>

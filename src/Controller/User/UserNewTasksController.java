@@ -1,6 +1,5 @@
 package Controller.User;
 
-import Controller.DataBase;
 import Controller.MainController;
 import Controller.ShowTasksData;
 import javafx.collections.FXCollections;
@@ -9,10 +8,9 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.text.Text;
 
-import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 public class UserNewTasksController {
 
@@ -34,6 +32,9 @@ public class UserNewTasksController {
     @FXML
     public TableColumn <ShowTasksData, String> peopleNeeded;
 
+    @FXML
+    public Text error;
+
     private ObservableList<ShowTasksData> task_list = FXCollections.observableArrayList();
 
     private MainController mainController;
@@ -41,6 +42,11 @@ public class UserNewTasksController {
     public void setMainController(MainController mainController) {
         this.mainController = mainController;
     }
+
+    public void initialize() {
+        error.setText("");
+    }
+
 
     @FXML
     public void backMenu() {
@@ -56,7 +62,7 @@ public class UserNewTasksController {
             //sprawdzam, czy zostało coś zaznaczone
             if (selected.getTask_id() > 0) {
                 //sprawdzam, czy nie jestem już na to zapisana - proforma
-                if(ifJoinYet(selected.getTask_id())){
+                if( !MainController.apiConnector.ifJoinYet(mainController.getCurrentUserId(), selected.getTask_id()) ){
                     //sprawdzam, czy są jeszcze wolne miejsca
                     if(!selected.getPeopleNeeded().equals("0")){
                         //jest git, można podjąć próbę zapisu
@@ -70,7 +76,7 @@ public class UserNewTasksController {
         }
     }
 
-    private boolean ifJoinYet(int taskId){
+    /*private boolean ifJoinYet(int taskId){
 
         try {
             DataBase.preparedStatement = DataBase.connection.prepareStatement("Select * from records where task_id = ? AND user_id = ?");
@@ -85,11 +91,11 @@ public class UserNewTasksController {
             e.printStackTrace();
         }
         return true;
-    }
+    }*/
 
     public void loadData(){
 
-        try {
+        /*try {
             DataBase.preparedStatement = DataBase.connection.prepareStatement("Select * from tasks_data WHERE tasks_data.task_id NOT IN (SELECT task_id FROM records WHERE user_id = ?)");
             DataBase.preparedStatement.setInt(1, mainController.getCurrentUserId());
             DataBase.rs = DataBase.preparedStatement.executeQuery();
@@ -105,6 +111,16 @@ public class UserNewTasksController {
             }
         } catch (SQLException e) {
             System.out.println("Brak zleceń");
+        }*/
+
+        String tasks = MainController.apiConnector.getFutureTasksUser(mainController.getCurrentUserId());
+        if (!tasks.equals("")) {
+            String[] splittedTasksData = tasks.split("\n+"); //dzielenie po enterze
+
+            for(int i = 0; i < splittedTasksData.length; i++){
+                String[] splittedTask = splittedTasksData[i].split("\\;+"); //dzielenie po średniku
+                task_list.add(new ShowTasksData(Integer.parseInt(splittedTask[0]), splittedTask[1], splittedTask[2], splittedTask[3], splittedTask[4], splittedTask[5]));
+            }
         }
 
         setCellValuesFactory();

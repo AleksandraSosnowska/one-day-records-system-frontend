@@ -60,7 +60,7 @@ public class UserTasksController {
         buttonShowNew.setVisible(true);
         buttonShowOld.setVisible(false);
         screenHeader.setText("Zrealizowane zlecenia");
-        try {
+        /*try {
             DataBase.rs = DataBase.stmt.executeQuery("Select * from tasks_data join records on records.task_id = tasks_data.task_id where records.user_id = " + mainController.getCurrentUserId());
             while (DataBase.rs.next()) {
 
@@ -76,6 +76,17 @@ public class UserTasksController {
             }
         } catch (SQLException e) {
             System.out.println("Brak wizyt");
+        }*/
+
+        String tasks = MainController.apiConnector.getHistoryTasks(mainController.getCurrentUserId());
+
+        if (!tasks.equals("")) {
+            String[] splittedTasksData = tasks.split("\\n+"); //dzielenie po enterze
+
+            for(int i = 0; i < splittedTasksData.length; i++){
+                String[] splittedTask = tasks.split("\\;+"); //dzielenie po średniku
+                task_list.add(new ShowTasksData(Integer.parseInt(splittedTask[0]), splittedTask[1], splittedTask[2], splittedTask[3], splittedTask[4], splittedTask[5]));
+            }
         }
 
         setCellValuesFactory();
@@ -87,7 +98,7 @@ public class UserTasksController {
         buttonShowNew.setVisible(false);
         buttonShowOld.setVisible(true);
         screenHeader.setText("Zlecenia do realizacji");
-        try {
+       /* try {
 
             DataBase.rs = DataBase.stmt.executeQuery("Select * from tasks_data join records on records.task_id = tasks_data.task_id where records.user_id = " + mainController.getCurrentUserId());
             while(DataBase.rs.next()){
@@ -102,6 +113,16 @@ public class UserTasksController {
             }
         } catch (SQLException e) {
             System.out.println("Brak zleceń");
+        }*/
+        String tasks = MainController.apiConnector.getFutureTasks(mainController.getCurrentUserId());
+
+        if (!tasks.equals("")) {
+            String[] splittedTasksData = tasks.split("\\n+"); //dzielenie po enterze
+
+            for(int i = 0; i < splittedTasksData.length; i++){
+                String[] splittedTask = tasks.split("\\;+"); //dzielenie po średniku
+                task_list.add(new ShowTasksData(Integer.parseInt(splittedTask[0]), splittedTask[1], splittedTask[2], splittedTask[3], splittedTask[4], splittedTask[5]));
+            }
         }
 
         setCellValuesFactory();

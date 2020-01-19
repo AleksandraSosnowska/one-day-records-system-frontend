@@ -20,7 +20,8 @@
         </Text>
         <Button id="menu-buttons" layoutX="268.0" layoutY="369.0" mnemonicParsing="false" onAction="#createNewTask" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Dodaj nowe zlecenie" />
         <Button id="menu-buttons" layoutX="268.0" layoutY="299.0" mnemonicParsing="false" onAction="#showAllTasks" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Wyświetl dodane zlecenia" />
-        <Button id="menu-buttons" layoutX="268.0" layoutY="443.0" mnemonicParsing="false" onAction="#log_out" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Wyloguj" />
-        <Button id="menu-buttons" layoutX="268.0" layoutY="514.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Wyjście" />
+        <Button id="menu-buttons" layoutX="268.0" layoutY="505.0" mnemonicParsing="false" onAction="#log_out" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Wyloguj" />
+        <Button id="menu-buttons" layoutX="268.0" layoutY="576.0" mnemonicParsing="false" onAction="#exit" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Wyjście" />
+        <Button id="menu-buttons" layoutX="268.0" layoutY="437.0" mnemonicParsing="false" onAction="#showUsers" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Wyświetl użytkowników" />
     </children>
 </Pane>

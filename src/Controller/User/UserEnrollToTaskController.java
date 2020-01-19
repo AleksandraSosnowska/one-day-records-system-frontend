@@ -1,18 +1,11 @@
 package Controller.User;
 
-import Controller.DataBase;
 import Controller.MainController;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.scene.chart.XYChart;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-
-import java.sql.SQLException;
-import java.sql.Types;
-import java.text.SimpleDateFormat;
 
 public class UserEnrollToTaskController {
 
@@ -53,8 +46,8 @@ public class UserEnrollToTaskController {
         String new_password = readPassword();
 
         if(new_password.length() > 1){
-            if(new_password.equals(getUserPassword())){
-                if ( saveMeToTask() == 1){
+            if(new_password.equals(MainController.apiConnector.getPass(mainController.getCurrentUserId()))){
+                if ( MainController.apiConnector.saveToTask(mainController.getCurrentUserId(), mainController.getTempTaskId()   ) == 1){
                     System.out.println("Correctly enrolled to this task");
                     mainController.switchScreen("user_tasks", true);
                 }
@@ -82,7 +75,7 @@ public class UserEnrollToTaskController {
         return null;
     }
 
-    private String getUserPassword(){
+    /*private String getUserPassword(){
         try {
             DataBase.rs = DataBase.stmt.executeQuery("select * from users_data where user_id = " + mainController.getCurrentUserId());
             if (DataBase.rs.next())
@@ -91,9 +84,9 @@ public class UserEnrollToTaskController {
             e.printStackTrace();
         }
         return "";
-    }
+    }*/
 
-    private int saveMeToTask(){
+    /*private int saveMeToTask(){
         try{
 
             DataBase.preparedStatement = DataBase.connection.prepareStatement("INSERT INTO records (user_id, task_id)" + "VALUES(?, ?)");
@@ -112,7 +105,7 @@ public class UserEnrollToTaskController {
             e.printStackTrace();
         }
         return 0;
-    }
+    }*/
 
     @FXML
     public void backMenu() {
@@ -136,7 +129,7 @@ public class UserEnrollToTaskController {
         this.togglevisiblePassword();
         error.setText("");
 
-        try {
+        /*try {
             DataBase.rs = DataBase.stmt.executeQuery("select * from tasks_data where task_id = " + mainController.getTempTaskId());
             if(DataBase.rs.next()){
                 hotelName.setText(DataBase.rs.getString("hotel_name"));
@@ -146,7 +139,18 @@ public class UserEnrollToTaskController {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        }
+        }*/
+        String taskData = MainController.apiConnector.getTaskData(mainController.getTempTaskId());
+        if (taskData.equals("")) throw new RuntimeException();
+        String[] splittedTaskData = taskData.split("\\;+");
+
+        hotelName.setText(splittedTaskData[0]);
+        address.setText(splittedTaskData[1]);
+        startDate.setText(splittedTaskData[2]);
+        endDate.setText(splittedTaskData[3]);
+
+
+
     }
 }
 

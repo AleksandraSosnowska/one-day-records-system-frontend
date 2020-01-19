@@ -1,8 +1,6 @@
 package Controller.Admin;
 
-import Controller.DataBase;
 import Controller.MainController;
-import Controller.ShowTasksData;
 import Controller.ShowUsersData;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -10,8 +8,6 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-
-import java.sql.SQLException;
 
 public class AdminShowUsersController {
 
@@ -44,19 +40,6 @@ public class AdminShowUsersController {
     }
 
     public void loadData(){
-
-       /* try {
-            DataBase.rs = DataBase.stmt.executeQuery("Select * from users_data WHERE ifAdmin is NULL");
-            while(DataBase.rs.next()){
-                users_list.add(new ShowUsersData(DataBase.rs.getInt("user_id"),
-                        DataBase.rs.getString("name"),
-                        DataBase.rs.getString("lastname"),
-                        DataBase.rs.getString("username"),
-                        Integer.toString(DataBase.rs.getInt("pesel"))));
-            }
-        } catch (SQLException e) {
-            System.out.println("Brak zleceń");
-        }*/
 
         String users = MainController.apiConnector.getNoAdminUsers();
         if (!users.equals("")) {

@@ -76,48 +76,15 @@ public class UserNewTasksController {
         }
     }
 
-    /*private boolean ifJoinYet(int taskId){
-
-        try {
-            DataBase.preparedStatement = DataBase.connection.prepareStatement("Select * from records where task_id = ? AND user_id = ?");
-            DataBase.preparedStatement.setInt(1, taskId);
-            DataBase.preparedStatement.setInt(2, mainController.getCurrentUserId());
-            DataBase.rs = DataBase.preparedStatement.executeQuery();
-
-            if(DataBase.rs.next()){
-                return false;
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return true;
-    }*/
-
     public void loadData(){
-
-        /*try {
-            DataBase.preparedStatement = DataBase.connection.prepareStatement("Select * from tasks_data WHERE tasks_data.task_id NOT IN (SELECT task_id FROM records WHERE user_id = ?)");
-            DataBase.preparedStatement.setInt(1, mainController.getCurrentUserId());
-            DataBase.rs = DataBase.preparedStatement.executeQuery();
-            while(DataBase.rs.next()){
-                if(DataBase.rs.getInt("amount_people_needed") > 0){
-                    task_list.add(new ShowTasksData(DataBase.rs.getInt("task_id"),
-                            DataBase.rs.getString("hotel_name"),
-                            DataBase.rs.getString("address"),
-                            new SimpleDateFormat("dd-MM-yyyy HH:mm").format(DataBase.rs.getTimestamp("start_date")),
-                            new SimpleDateFormat("dd-MM-yyyy HH:mm").format(DataBase.rs.getTimestamp("end_date")),
-                            Integer.toString(DataBase.rs.getInt("amount_people_needed"))));
-                }
-            }
-        } catch (SQLException e) {
-            System.out.println("Brak zleceń");
-        }*/
 
         String tasks = MainController.apiConnector.getFutureTasksUser(mainController.getCurrentUserId());
         if (!tasks.equals("")) {
-            String[] splittedTasksData = tasks.split("\n+"); //dzielenie po enterze
+            System.out.println(tasks);
+            String[] splittedTasksData = tasks.split("\\=+"); //dzielenie po enterze
 
             for(int i = 0; i < splittedTasksData.length; i++){
+                System.out.println(splittedTasksData[i]);
                 String[] splittedTask = splittedTasksData[i].split("\\;+"); //dzielenie po średniku
                 task_list.add(new ShowTasksData(Integer.parseInt(splittedTask[0]), splittedTask[1], splittedTask[2], splittedTask[3], splittedTask[4], splittedTask[5]));
             }

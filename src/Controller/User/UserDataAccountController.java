@@ -1,6 +1,5 @@
 package Controller.User;
 
-import Controller.DataBase;
 import Controller.MainController;
 import javafx.fxml.FXML;
 import javafx.scene.control.CheckBox;
@@ -9,7 +8,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
-import java.sql.SQLException;
 import java.util.regex.Pattern;
 
 public class UserDataAccountController {
@@ -64,6 +62,7 @@ public class UserDataAccountController {
 			UsernameValidation usernameValidation = new UsernameValidation(new_login);
 			Thread usernameThread = new Thread(usernameValidation);
 			usernameThread.start();
+
 			String new_password = new_password_input.getText();
 			String old_password = old_password_input.getText();
 			PasswordValidation passwordValidation = new PasswordValidation(new_password, old_password);
@@ -73,7 +72,8 @@ public class UserDataAccountController {
 			if (new_name.length() > 1 || new_lastname.length() > 1 || new_login.length() > 1 || new_password != null) {
 
 				/* Dokonujemy zmiany w koncie usera*/
-
+				usernameThread.join();
+				passwordThread.join();
 				if (new_name.length() > 1) {
 					MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 1, new_name);
 					temp = 1;
@@ -82,7 +82,6 @@ public class UserDataAccountController {
 					MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 2, new_lastname);
 					temp = 2;
 				}
-				usernameThread.join();
 				if (new_login.length() > 1) {
 					if (usernameValidation.isValid) {
 						MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 3, new_login);
@@ -91,7 +90,6 @@ public class UserDataAccountController {
 						image_err1.setVisible(true);
 					}
 				}
-				passwordThread.join();
 				if (new_password.length() > 1 || old_password.length() > 1) {
 					if (passwordValidation.isCorrect) {
 						image_err2.setVisible(false);
@@ -155,20 +153,7 @@ public class UserDataAccountController {
 
 	public void loadData() {
 
-        /*try {
-            DataBase.rs = DataBase.stmt.executeQuery("select * from users_data where user_id = " + mainController.getCurrentUserId());
-            if(DataBase.rs.next()){
-                userName.setText(DataBase.rs.getString("name"));
-                userLastname.setText(DataBase.rs.getString("lastname"));
-                userLogin.setText(DataBase.rs.getString("username"));
-                userPesel.setText(DataBase.rs.getString("pesel"));
-                pass = DataBase.rs.getString("password");
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }*/
-
-		String userData = MainController.apiConnector.getUserData(mainController.getCurrentUserId());
+        String userData = MainController.apiConnector.getUserData(mainController.getCurrentUserId());
 		if (userData.equals("")) throw new RuntimeException();
 		String[] splittedUserData = userData.split("\\;+");
 

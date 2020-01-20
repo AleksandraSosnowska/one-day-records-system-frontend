@@ -44,7 +44,6 @@ public class AdminShowUsersController {
         String users = MainController.apiConnector.getNoAdminUsers();
         if (!users.equals("")) {
             String[] splittedUsers = users.split("=+");
-            System.out.println(splittedUsers);
             for(int i = 0; i < splittedUsers.length; i++) {
                 String[] splitted = splittedUsers[i].split("\\;+");
                 users_list.add(new ShowUsersData(Integer.parseInt(splitted[0]), splitted[1],

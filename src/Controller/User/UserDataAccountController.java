@@ -8,6 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 
+import java.util.concurrent.*;
 import java.util.regex.Pattern;
 
 public class UserDataAccountController {
@@ -55,25 +56,26 @@ public class UserDataAccountController {
 	@FXML
 	public void doChange() {
 		int temp = 0;
+		ExecutorService executor = Executors.newFixedThreadPool(2);
+
 		try {
 			String new_name = change_name.getText();
 			String new_lastname = change_lastname.getText();
 			String new_login = change_login.getText();
 			UsernameValidation usernameValidation = new UsernameValidation(new_login);
-			Thread usernameThread = new Thread(usernameValidation);
-			usernameThread.start();
+			FutureTask<Boolean> usernameTask = new FutureTask<>(usernameValidation);
+			executor.submit(usernameTask);
 
 			String new_password = new_password_input.getText();
 			String old_password = old_password_input.getText();
 			PasswordValidation passwordValidation = new PasswordValidation(new_password, old_password);
-			Thread passwordThread = new Thread(passwordValidation);
-			passwordThread.start();
+			FutureTask<Boolean> passwordTask = new FutureTask<>(passwordValidation);
+			executor.submit(passwordTask);
 
 			if (new_name.length() > 1 || new_lastname.length() > 1 || new_login.length() > 1 || new_password != null) {
 
 				/* Dokonujemy zmiany w koncie usera*/
-				usernameThread.join();
-				passwordThread.join();
+
 				if (new_name.length() > 1) {
 					MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 1, new_name);
 					temp = 1;
@@ -83,39 +85,25 @@ public class UserDataAccountController {
 					temp = 2;
 				}
 				if (new_login.length() > 1) {
-					if (usernameValidation.isValid) {
+					if (usernameTask.get(250, TimeUnit.MILLISECONDS)) {
 						MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 3, new_login);
 						temp = 3;
-					} else {
-						image_err1.setVisible(true);
 					}
 				}
-				if (new_password.length() > 1 || old_password.length() > 1) {
-					if (passwordValidation.isCorrect) {
-						image_err2.setVisible(false);
-						if (passwordValidation.isValid) {
-							MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 4, new_password);
-							temp = 4;
-						} else {
-							image_err3.setVisible(true);
-						}
-					} else {
-						error.setText("Wpisano niepoprawne hasło");
-						image_err2.setVisible(true);
-					}
+				if (passwordTask.get(250, TimeUnit.MILLISECONDS)) {
+					MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 4, new_password);
+					temp = 4;
+				}
+				executor.shutdown();
 
-				}
 				/* Załadowanie strony od nowa */
 				if (temp > 0)
 					mainController.switchScreen("user_account_data", true);
 			} else {
 				error.setText("Brak danych");
-				System.out.println("Brak danych");
 			}
 		} catch (Exception e) {
 			error.setText("Błędne dane!");
-			System.out.println("Błędne dane!");
-			//może np nazwisko wywołało błąd a imię się zmieniło - należy załadować opcjonalne zmiany
 			mainController.switchScreen("user_account_data", true);
 		}
 	}
@@ -163,9 +151,8 @@ public class UserDataAccountController {
 		userPesel.setText(splittedUserData[4]);
 	}
 
-	static class UsernameValidation implements Runnable {
-		boolean isValid = false;
-		boolean isCorrect = false;
+
+	class UsernameValidation implements Callable<Boolean> {
 		String username;
 
 		UsernameValidation(String username) {
@@ -173,17 +160,24 @@ public class UserDataAccountController {
 		}
 
 		@Override
-		public void run() {
-			isCorrect = Pattern.compile("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9]+(?<![_.])$").matcher(username).matches();
-			if (isCorrect) {
-				isValid = !MainController.apiConnector.validateUsername(username);
+		public synchronized Boolean call() {
+			boolean isValid = false;
+			if (username.length() > 0) {
+
+				isValid = Pattern.compile("^(?=.{8,20}$)(?![_.])(?!.*[_.]{2})[a-zA-Z0-9]+(?<![_.])$").matcher(username).matches();
+				if (isValid) {
+					isValid = !MainController.apiConnector.validateUsername(username);
+					if (!isValid) error.setText("Login niedostępny");
+				} else {
+					error.setText("Niepoprawny login");
+				}
+				if (!isValid) image_err1.setVisible(true);
 			}
+			return isValid;
 		}
 	}
 
-	class PasswordValidation implements Runnable {
-		boolean isValid = false;
-		boolean isCorrect = false;
+	class PasswordValidation implements Callable<Boolean> {
 		String new_pass;
 		String old_pass;
 
@@ -193,22 +187,26 @@ public class UserDataAccountController {
 		}
 
 		@Override
-		public void run() {
+		public synchronized Boolean call() {
+			boolean isValid = false;
+			if (new_pass.length() > 0 || old_pass.length() > 0) {
 
-			/*try {
-				DataBase.rs = DataBase.stmt.executeQuery("Select password from users_data WHERE user_id = " + mainController.getCurrentUserId());
-				if (DataBase.rs.next()) {
-					if (DataBase.rs.getString("password").equals(old_pass)) {
-						isCorrect = true;
+				isValid = MainController.apiConnector.getPass(mainController.getCurrentUserId()).equals(old_pass);
+				if (isValid) {
+					image_err2.setVisible(false);
+
+					isValid = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z0-9@$!%*?&]{8,20}$").matcher(new_pass).matches();
+					if (!isValid) {
+						error.setText("Nowe hasło nie spełnia wymogów");
+						image_err3.setVisible(true);
 					}
+
+				} else {
+					error.setText("Wpisano niepoprawne hasło");
+					image_err2.setVisible(true);
 				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}*/
-
-			isCorrect = MainController.apiConnector.getPass(mainController.getCurrentUserId()).equals(old_pass);
-
-			isValid = Pattern.compile("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&])[A-Za-z0-9@$!%*?&]{8,20}$").matcher(new_pass).matches();
+			}
+			return (isValid);
 		}
 	}
 }

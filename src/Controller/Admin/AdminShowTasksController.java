@@ -1,6 +1,5 @@
 package Controller.Admin;
 
-import Controller.DataBase;
 import Controller.MainController;
 import Controller.ShowTasksData;
 import javafx.collections.FXCollections;
@@ -10,9 +9,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-import java.sql.SQLException;
 import java.sql.Timestamp;
-import java.text.SimpleDateFormat;
 
 public class AdminShowTasksController {
 

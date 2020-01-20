@@ -56,6 +56,13 @@ public class ApiConnector {
 		}
 	}
 
+	public void addNewUser(String username, String password, String firstname, String lastname, String pesel) {
+		serverOut.println("addnewuser;" + username + ';' + password + ';' + firstname + ';' + lastname + ';' + pesel);
+		if (serverIn.hasNextLine()) {
+			if (serverIn.nextLine().equals("false")) throw new RuntimeException();
+		}
+	}
+
 	public void addNewTask(String hotel_name, String address, Timestamp start_date, Timestamp end_date, String amount_people_needed) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy-HH:mm:ss");
 		String start = dateFormat.format(start_date);

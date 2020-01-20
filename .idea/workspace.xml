@@ -3,11 +3,34 @@
   <component name="ChangeListManager">
     <list default="true" id="29a914bc-9344-4d82-a418-a2ba12d0f583" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/Admin/AdminShowUsersController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/Admin/AdminShowUsersController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/Admin/AdminTaskEditorController$AmountValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/Admin/AdminTaskEditorController$AmountValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/Admin/AdminTaskEditorController$DateValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/Admin/AdminTaskEditorController$DateValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/Admin/AdminTaskEditorController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/Admin/AdminTaskEditorController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/ApiConnector.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/ApiConnector.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/LoginController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/LoginController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$PasswordValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$PasswordValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$PeselValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$PeselValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$UsernameValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController$UsernameValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/RegisterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserDataAccountController$PasswordValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserDataAccountController$PasswordValidation.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserDataAccountController$UsernameValidation.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserDataAccountController$UsernameValidation.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserDataAccountController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserDataAccountController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserNewTasksController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserNewTasksController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserTasksController.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/Controller/User/UserTasksController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/Admin/AdminTaskEditorScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/one-day-record-system-frontend/fxml/Admin/AdminTaskEditorScreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminAddTaskController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminAddTaskController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminShowTasksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminShowTasksController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminShowUsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminShowUsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/Admin/AdminTaskEditorController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/Admin/AdminTaskEditorController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/ApiConnector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/ApiConnector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/DataBase.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/MainController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/MainController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller/RegisterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/RegisterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/User/UserDataAccountController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserDataAccountController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/User/UserNewTasksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserNewTasksController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Controller/User/UserTasksController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/User/UserTasksController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/fxml/Admin/AdminTaskEditorScreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/fxml/Admin/AdminTaskEditorScreen.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +108,8 @@
       <workItem from="1579112004267" duration="5212000" />
       <workItem from="1579175179802" duration="3354000" />
       <workItem from="1579259755285" duration="3437000" />
-      <workItem from="1579293800817" duration="38298000" />
+      <workItem from="1579293800817" duration="42138000" />
+      <workItem from="1579523109243" duration="10465000" />
     </task>
     <servers />
   </component>
@@ -101,10 +125,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="44" y="80" width="1441" height="684" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1578610934304" />
-    <state x="840" y="146" key="#com.intellij.ide.util.MemberChooser" timestamp="1579113330881">
+    <state x="840" y="146" key="#com.intellij.ide.util.MemberChooser" timestamp="1579530555748">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="840" y="146" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1579113330881" />
+    <state x="840" y="146" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1579530555748" />
     <state x="498" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1578602204419">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -113,22 +137,22 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="722" y="156" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1578600782058" />
-    <state width="1493" height="114" key="GridCell.Tab.0.bottom" timestamp="1579464744746">
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom" timestamp="1579535092738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579464744746" />
-    <state width="1493" height="114" key="GridCell.Tab.0.center" timestamp="1579464744746">
+    <state width="1493" height="125" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1579535092738" />
+    <state width="1493" height="125" key="GridCell.Tab.0.center" timestamp="1579535092738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579464744746" />
-    <state width="1493" height="114" key="GridCell.Tab.0.left" timestamp="1579464744746">
+    <state width="1493" height="125" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1579535092738" />
+    <state width="1493" height="125" key="GridCell.Tab.0.left" timestamp="1579535092738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579464744746" />
-    <state width="1493" height="114" key="GridCell.Tab.0.right" timestamp="1579464744746">
+    <state width="1493" height="125" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1579535092738" />
+    <state width="1493" height="125" key="GridCell.Tab.0.right" timestamp="1579535092738">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="114" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579464744746" />
+    <state width="1493" height="125" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1579535092738" />
     <state width="1493" height="261" key="GridCell.Tab.1.bottom" timestamp="1578768340648">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

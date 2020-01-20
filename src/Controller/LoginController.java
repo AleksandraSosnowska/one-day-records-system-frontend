@@ -10,6 +10,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class LoginController {
 
 	@FXML
@@ -81,6 +86,7 @@ public class LoginController {
 				if (triesAmount == 3) {
 
 					delayAction();
+					triesAmount = 0;
 				} else {
 					info.setText("Błędny login lub hasło");
 				}
@@ -143,12 +149,19 @@ public class LoginController {
 	}
 
 	public void delayAction() {
-		info1.setText("Zbyt dużo błędnych prób, spróbuj ponownie za 30s");
+		AtomicInteger counting = new AtomicInteger(30);
 		info.setText("");
 		loginButton.setVisible(false);
+		Runnable runnableTask = () -> {
+			info1.setText("Zbyt dużo błędnych prób, spróbuj ponownie za " + counting + "s");
+			counting.set(counting.get() - 1);
+		};
+		final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
+		executorService.scheduleAtFixedRate(runnableTask, 0, 1, TimeUnit.SECONDS);
+
 		PauseTransition wait = new PauseTransition(Duration.seconds(30));
 		wait.setOnFinished((e) -> {
-			/*YOUR METHOD*/
+			executorService.shutdown();
 			loginButton.setVisible(true);
 			info1.setText("");
 		});

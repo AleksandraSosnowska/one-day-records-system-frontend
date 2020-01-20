@@ -73,11 +73,9 @@ public class UserTasksController {
 
     private void splitReceivedData(String tasks) {
         if (!tasks.equals("")) {
-            System.out.println(tasks);
             String[] splittedTasksData = tasks.split("\\=+");
 
             for(int i = 0; i < splittedTasksData.length; i++){
-                System.out.println(splittedTasksData[i]);
                 String[] splittedTask = splittedTasksData[i].split("\\;+");
                 task_list.add(new ShowTasksData(Integer.parseInt(splittedTask[0]), splittedTask[1], splittedTask[2], splittedTask[3], splittedTask[4], splittedTask[5]));
             }

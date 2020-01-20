@@ -33,8 +33,6 @@ public class MainController {
 	@FXML
 	public void initialize() throws IOException {
 		apiConnector = new ApiConnector();
-        /*DataBase connect = new DataBase();
-        connect.DBConnect();*/
 		switchScreen("menu", true);
 	}
 

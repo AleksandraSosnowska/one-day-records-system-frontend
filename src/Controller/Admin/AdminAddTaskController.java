@@ -1,13 +1,10 @@
 package Controller.Admin;
 
-import Controller.DataBase;
 import Controller.MainController;
-import com.sun.tools.javac.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.regex.Pattern;

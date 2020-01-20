@@ -18,7 +18,7 @@
             </children>
         </TextFlow>
         <Button id="menu-buttons" layoutX="268.0" layoutY="517.0" mnemonicParsing="false" onAction="#doChange" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Zatwierdź zmiany" />
-        <Text fill="WHITE" layoutX="243.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zarządzanie zleceniem">
+        <Text fill="WHITE" layoutX="265.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Zarządzanie zleceniem">
             <font>
                 <Font name="Calibri Bold" size="28.0" />
             </font>

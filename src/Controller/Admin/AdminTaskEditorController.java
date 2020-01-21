@@ -135,7 +135,7 @@ public class AdminTaskEditorController {
 
     @FXML
     public void backMenu() {
-        mainController.switchScreen("admin_menu", true);
+        mainController.switchScreen("admin_show_tasks", true);
     }
 
     public void loadData(){

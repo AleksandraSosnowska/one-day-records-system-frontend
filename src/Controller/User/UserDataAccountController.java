@@ -55,6 +55,7 @@ public class UserDataAccountController {
 
 	@FXML
 	public void doChange() {
+		initialize();
 		int temp = 0;
 		ExecutorService executor = Executors.newFixedThreadPool(2);
 
@@ -84,11 +85,9 @@ public class UserDataAccountController {
 					MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 2, new_lastname);
 					temp = 2;
 				}
-				if (new_login.length() > 1) {
-					if (usernameTask.get(250, TimeUnit.MILLISECONDS)) {
+				if (usernameTask.get(250, TimeUnit.MILLISECONDS)) {
 						MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 3, new_login);
 						temp = 3;
-					}
 				}
 				if (passwordTask.get(250, TimeUnit.MILLISECONDS)) {
 					MainController.apiConnector.changeUserData(mainController.getCurrentUserId(), 4, new_password);

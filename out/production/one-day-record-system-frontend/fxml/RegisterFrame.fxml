@@ -14,7 +14,7 @@
     <children>
         <TextFlow layoutX="430.0" layoutY="760.0" prefHeight="20.0" prefWidth="360.0" style="-fx-background-color: #000033; -fx-text-alignment: center; -fx-background-radius: 10px 0px 0 0;">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-family: Calibry; -fx-font-weight: 100;" text="Aleksandra Kuc - Technologie Obiektowe" textAlignment="CENTER" wrappingWidth="441.8162841796875" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-family: Calibry; -fx-font-weight: 100;" text="Aleksandra Kuc" textAlignment="CENTER" wrappingWidth="441.8162841796875" />
             </children>
         </TextFlow>
         <Button id="menu-buttons" layoutX="268.0" layoutY="517.0" mnemonicParsing="false" onAction="#registerAccount" prefHeight="40.0" prefWidth="255.0" stylesheets="@style.css" text="Zarejestruj się" />

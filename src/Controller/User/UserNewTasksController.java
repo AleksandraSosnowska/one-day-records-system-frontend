@@ -80,11 +80,9 @@ public class UserNewTasksController {
 
         String tasks = MainController.apiConnector.getFutureTasksUser(mainController.getCurrentUserId());
         if (!tasks.equals("")) {
-            System.out.println(tasks);
             String[] splittedTasksData = tasks.split("\\=+"); //dzielenie po enterze
 
             for(int i = 0; i < splittedTasksData.length; i++){
-                System.out.println(splittedTasksData[i]);
                 String[] splittedTask = splittedTasksData[i].split("\\;+"); //dzielenie po średniku
                 task_list.add(new ShowTasksData(Integer.parseInt(splittedTask[0]), splittedTask[1], splittedTask[2], splittedTask[3], splittedTask[4], splittedTask[5]));
             }

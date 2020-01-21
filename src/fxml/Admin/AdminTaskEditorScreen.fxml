@@ -14,7 +14,7 @@
     <children>
         <TextFlow layoutX="430.0" layoutY="760.0" prefHeight="20.0" prefWidth="360.0" style="-fx-background-color: #000033; -fx-text-alignment: center; -fx-background-radius: 10px 0px 0 0;">
             <children>
-                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-family: Calibry; -fx-font-weight: 100;" text="Aleksandra Kuc - Technologie Obiektowe" textAlignment="CENTER" wrappingWidth="441.8162841796875" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" style="-fx-fill: white; -fx-font-family: Calibry; -fx-font-weight: 100;" text="Aleksandra Kuc - Programowanie w Języku Java" textAlignment="CENTER" wrappingWidth="441.8162841796875" />
             </children>
         </TextFlow>
         <Button id="menu-buttons" layoutX="268.0" layoutY="517.0" mnemonicParsing="false" onAction="#doChange" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Zatwierdź zmiany" />
@@ -23,7 +23,7 @@
                 <Font name="Calibri Bold" size="28.0" />
             </font>
         </Text>
-        <Button id="menu-buttons" layoutX="268.0" layoutY="644.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Powrót do menu" />
+        <Button id="menu-buttons" layoutX="268.0" layoutY="644.0" mnemonicParsing="false" onAction="#backMenu" prefHeight="40.0" prefWidth="255.0" stylesheets="@../style.css" text="Powrót do listy" />
         <Text fill="WHITE" layoutX="89.0" layoutY="599.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Aby wprowadzić zmiany, wprowadź nowe dane a następnie zatwierdź je przyciskiem.">
             <font>
                 <Font name="Calibri Light" size="18.0" />
